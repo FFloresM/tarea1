@@ -3,3 +3,5 @@ Algoritmo que dada una secuencia de números ordenada y un entero x, encuentra u
 - Primer algoritmo O(n^2)
 - Segundo algoritmo O(nlogn)
 - Tercer algoritmo O(n)
+
+compex: compila y ejecuta t1_5.cpp

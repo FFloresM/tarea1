@@ -1,10 +1,30 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
+#include <random>
+#include <chrono>
+#include <algorithm>
 
 using namespace std;
 
 int _i,_j;
+
+void show(vector<int> v){
+	for (int i = 0; i < v.size(); ++i)
+		cout << v[i] << " ";
+	cout<<endl;
+	
+}
+
+//crea elementos aleatorios y los ordena
+void init(vector<int> &v, int len){
+	unsigned seed = chrono::system_clock::now().time_since_epoch().count();
+	default_random_engine generator(seed);
+	uniform_int_distribution<int> dist(1,100);
+	for (int i = 0; i < len; ++i){
+		v.push_back (dist(generator));
+	}
+	sort(v.begin(), v.end());
+}
 
 int binarySearch(vector<int> v, int l, int r, int x){
 	int mid;
@@ -38,7 +58,7 @@ void nlogn(vector<int> v, int x){
 		b = v[i];
 		y = x-b;
 		_j = binarySearch(v,0,v.size()-1,y);
-		if (_j != -1)
+		if (_j == -1)
 			continue;
 		else{
 			_i=i;
@@ -55,13 +75,19 @@ int main(int argc, char const *argv[])
 {
 	//int n = atoi(argv[1]);
 	int myints[] = {1,2,3,4,5};
-  	vector<int> v (myints, myints + sizeof(myints) / sizeof(int) );
+  	vector<int> v;// (myints, myints + sizeof(myints) / sizeof(int) );
   	//vector<int> v (myints.begin(), myints.end());
-
+/*
 	int x = 7;
-	nlogn(v,x);
-	cout << _i << " " << _j << endl;
+	n2(v,x);
+	cout <<"n2: " << _i << " " << _j << endl;
 
+	nlogn(v,x);
+	cout<<"nlogn: " << _i << " " << _j << endl;
+*/
+  	init(v,20);
+  	show(v);
+  	
 //	cout << binarySearch(v, 0, 4,x) << endl;	
 
 	return 0;
