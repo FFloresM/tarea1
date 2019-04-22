@@ -91,7 +91,7 @@ int main(int argc, char const *argv[])
 {
 	int x = atoi(argv[1]);
 	int n = atoi(argv[2]);
-	int max = atoi(argv[3]);
+//	int max = atoi(argv[3]);
 
 	vector<int> v;
 
@@ -106,22 +106,25 @@ for (int i = 8; i < n; ++i)
 	vector<int> peor_n2 (p-2,1);
 	peor_n2.push_back(100);
 	peor_n2.push_back(50);
-	show(peor_n2);
+//	show(peor_n2);
 	auto s1 = chrono::high_resolution_clock::now();
 	//n2(v,x);
-	n2(peor_n2,x);
+	ene(peor_n2,x);
 	
 	auto f1 = chrono::high_resolution_clock::now();
 	
-	if(_i>=0 && _j >=0 ){
-		cout<<"*************\n";//CHEQUEAR!!!
-		cout<<"n^2:"<<" A[" << _i<<"]" << " A[" << _j <<"]"<< endl;
-		cout << v[_i] <<" + "<< v[_j] <<" = " << x << endl;
-	}else cout << "valores no encontrados\n";
-	auto d1 = chrono::duration_cast<chrono::nanoseconds> (f1 - s1).count();
-	cout <<"total time "<< d1 << " [ns]" << " \n\n";
+//	cout<<"*************--largo---> "<<peor_n2.size()<<endl ;//CHEQUEAR!!!
 
-	//peor_n2.clear();
+/*	if(_i>=0 && _j >=0 ){
+		
+		cout<<"n^2:"<<" A[" << _i<<"]" << " A[" << _j <<"]"<< endl;
+		
+	//	cout << v[_i] <<" + "<< v[_j] <<" = " << x << endl;
+		cout << peor_n2[_i] <<" + "<< peor_n2[_j] <<" = " << x << endl;
+	}else cout << "valores no encontrados\n";
+*/	auto d1 = chrono::duration_cast<chrono::nanoseconds> (f1 - s1).count();
+//	cout <<"total time "<< d1 << " [ns]" << " \n\n";
+	cout << p << ", " << d1 << endl;
 
 /*	auto s2 = chrono::high_resolution_clock::now();
 	nlogn(v,x);
