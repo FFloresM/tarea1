@@ -20,7 +20,7 @@ void show(vector<int> v){
 void init(vector<int> &v, int len){
 	unsigned seed = chrono::system_clock::now().time_since_epoch().count();
 	default_random_engine generator(seed);
-	uniform_int_distribution<int> dist(1,10);
+	uniform_int_distribution<int> dist(1,100);
 	for (int i = 0; i < len; ++i){
 		v.push_back (dist(generator));
 	}
@@ -89,19 +89,20 @@ void ene(vector<int> v, int x){
 
 int main(int argc, char const *argv[])
 {
-	//int n = atoi(argv[1]);
+	//int b = atoi(argv[1]);
+	//int n = 1<<b;
 
   	vector<int> v;
 
-  	init(v,20);
-	int x = 14;
+  	init(v,100);
+	int x = 187;
 	show(v);
 
 	auto s1 = chrono::high_resolution_clock::now();
 	n2(v,x);
 	auto f1 = chrono::high_resolution_clock::now();
 	if(_i>=0 && _j >=0 ){
-		cout<<"nlogn:"<<" A[" << _i<<"]" << " A[" << _j <<"]"<< endl;
+		cout<<"n^2:"<<" A[" << _i<<"]" << " A[" << _j <<"]"<< endl;
 		cout << v[_i] <<" + "<< v[_j] <<" = " << x << endl;
 	}else cout << "valores no encontrados\n";
 	auto d1 = chrono::duration_cast<chrono::nanoseconds> (f1 - s1).count();
@@ -121,7 +122,7 @@ int main(int argc, char const *argv[])
 	ene(v,x);
 	auto f3 = chrono::high_resolution_clock::now();
 	if(_i>=0 && _j >=0 ){
-		cout<<"nlogn:"<<" A[" << _i<<"]" << " A[" << _j <<"]"<< endl;
+		cout<<"n:"<<" A[" << _i<<"]" << " A[" << _j <<"]"<< endl;
 		cout << v[_i] <<" + "<< v[_j] <<" = " << x << endl;
 	}else cout << "valores no encontrados\n";
 	auto d3 = chrono::duration_cast<chrono::nanoseconds> (f3 - s3).count();
