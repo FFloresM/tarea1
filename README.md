@@ -4,4 +4,12 @@ Algoritmo que dada una secuencia de números ordenada y un entero x, encuentra u
 - Segundo algoritmo O(nlogn)
 - Tercer algoritmo O(n)
 
-compex: compila y ejecuta t1_5.cpp
+##compilar
+$ g++ t1_5.cpp -o t1_5 -std=c++11
+
+##ejecutar
+$ ./t1_5 x n max 
+
+x: valor de la suma
+n: largo máximo del arreglo (potencia de 2)
+max: arreglo aleatorio con valores desde 1 hasta max.
