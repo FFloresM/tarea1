@@ -17,10 +17,10 @@ void show(vector<int> v){
 
 
 //crea elementos aleatorios y los ordena
-void init(vector<int> &v, int len){
+void init(vector<int> &v, int len, int max){
 	unsigned seed = chrono::system_clock::now().time_since_epoch().count();
 	default_random_engine generator(seed);
-	uniform_int_distribution<int> dist(1,100);
+	uniform_int_distribution<int> dist(1,max);
 	for (int i = 0; i < len; ++i){
 		v.push_back (dist(generator));
 	}
@@ -89,26 +89,41 @@ void ene(vector<int> v, int x){
 
 int main(int argc, char const *argv[])
 {
-	//int b = atoi(argv[1]);
-	//int n = 1<<b;
+	int x = atoi(argv[1]);
+	int n = atoi(argv[2]);
+	int max = atoi(argv[3]);
 
-  	vector<int> v;
+	vector<int> v;
 
-  	init(v,100);
-	int x = 187;
-	show(v);
 
+	
+for (int i = 8; i < n; ++i)
+{
+	int p = 1<<i;
+  	//init(v,p,max);
+	//show(v);
+	
+	vector<int> peor_n2 (p-2,1);
+	peor_n2.push_back(100);
+	peor_n2.push_back(50);
+	show(peor_n2);
 	auto s1 = chrono::high_resolution_clock::now();
-	n2(v,x);
+	//n2(v,x);
+	n2(peor_n2,x);
+	
 	auto f1 = chrono::high_resolution_clock::now();
+	
 	if(_i>=0 && _j >=0 ){
+		cout<<"*************\n";//CHEQUEAR!!!
 		cout<<"n^2:"<<" A[" << _i<<"]" << " A[" << _j <<"]"<< endl;
 		cout << v[_i] <<" + "<< v[_j] <<" = " << x << endl;
 	}else cout << "valores no encontrados\n";
 	auto d1 = chrono::duration_cast<chrono::nanoseconds> (f1 - s1).count();
 	cout <<"total time "<< d1 << " [ns]" << " \n\n";
 
-	auto s2 = chrono::high_resolution_clock::now();
+	//peor_n2.clear();
+
+/*	auto s2 = chrono::high_resolution_clock::now();
 	nlogn(v,x);
 	auto f2 = chrono::high_resolution_clock::now();
 	if(_i>=0 && _j >=0 ){
@@ -127,12 +142,8 @@ int main(int argc, char const *argv[])
 	}else cout << "valores no encontrados\n";
 	auto d3 = chrono::duration_cast<chrono::nanoseconds> (f3 - s3).count();
 	cout <<"total time "<< d3 << " [ns]" << " \n\n";
-
-	
-/*
-  	init(v,20);
-  	show(v);
-*/  		
+*/
+}		
 
 	return 0;
 }
