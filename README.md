@@ -4,10 +4,10 @@ Algoritmo que dada una secuencia de números ordenada y un entero x, encuentra u
 - Segundo algoritmo O(nlogn)
 - Tercer algoritmo O(n)
 
-##compilar
+## compilar
 $ g++ t1_5.cpp -o t1_5 -std=c++11
 
-##ejecutar
+## ejecutar
 $ ./t1_5 x n max 
 
 x: valor de la suma
