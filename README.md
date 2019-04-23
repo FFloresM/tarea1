@@ -5,11 +5,18 @@ Algoritmo que dada una secuencia de números ordenada y un entero x, encuentra u
 - Tercer algoritmo O(n)
 
 ## compilar
+
+```bash
 $ g++ t1_5.cpp -o t1_5 -std=c++11
+```
 
 ## ejecutar
-$ ./t1_5 x n max 
 
-x: valor de la suma
-n: largo máximo del arreglo (potencia de 2)
-max: arreglo aleatorio con valores desde 1 hasta max.
+```bash
+$ ./t1_5 x n max
+```
+
+
+- x: valor de la suma
+- n: largo máximo del arreglo (potencia de 2)
+- max: arreglo aleatorio con valores desde 1 hasta max.
